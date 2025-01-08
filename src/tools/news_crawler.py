@@ -2,7 +2,7 @@ import os
 import sys
 import json
 from datetime import datetime
-import akshare as ak
+import yfinance as yf
 import requests
 from bs4 import BeautifulSoup
 from src.tools.openrouter_config import get_chat_completion, logger as api_logger
@@ -71,7 +71,8 @@ def get_stock_news(symbol: str, max_news: int = 10) -> list:
 
     try:
         # 获取新闻列表
-        news_df = ak.stock_news_em(symbol=symbol)
+        # news_df = ak.stock_news_em(symbol=symbol)
+        news_df = yf.
         if news_df is None or len(news_df) == 0:
             print(f"未获取到{symbol}的新闻数据")
             return []
